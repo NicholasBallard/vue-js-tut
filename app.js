@@ -1,14 +1,20 @@
 new Vue({
-    el: '#vue-app',
+    el: "#vue-app",
     data: {
-        name: 'Nicholas',
-        job: 'Ninja',
-        website: 'http://bing.com/',
-        websiteTag: '<a href="http://www.optimoanalytics.com/">Aaron\'s new website, Optimo Analytics</a>',
+        age: 20,
+        a: 0,
+        b: 0,
     },
     methods: {
-        greet: function(daypart){
-            return 'Good ' + daypart + ', ' + this.name + '.';
-        }
+    },
+    computed: {
+        addToA: function () {
+            console.log('addToA')
+            return this.a + this.age;
+        },
+        addToB: function () {
+            console.log('addToB')
+            return this.b + this.age;
+        },
     }
 });
