@@ -1,13 +1,21 @@
-new Vue({
-    el: "#vue-app",
-    data: {
-        characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
-        ninjas: [
-            { name: 'Ryu', age: 25 },
-            { name: 'Yoshi', age: 35 },
-            { name: 'Ken', age: 55 },
-        ]
+Vue.component('greeting', {
+    template: '<p>Hey there, I\'m a reusable component called {{name}}. :) <button v-on:click="changeName">Change Name</button></p > ',
+    data: function () {
+        return {
+            name: 'Yoshi',
+        }
     },
-    methods: {},
-    computed: {},
+    methods: {
+        changeName: function(){
+            this.name = 'Mario';
+        }
+    }
+})
+
+new Vue({
+    el: "#vue-app-one",
+});
+
+new Vue({
+    el: "#vue-app-two",
 });
