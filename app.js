@@ -1,20 +1,31 @@
-new Vue({
-    el: "#vue-app",
+var one = new Vue({
+    el: "#vue-app-one",
     data: {
-        age: 20,
-        a: 0,
-        b: 0,
+        title: 'Vue App One'
+    },
+    methods: {},
+    computed: {
+        greet: function () {
+            return 'Hello from app one. :)'
+        }
+    },
+});
+
+var two = new Vue({
+    el: "#vue-app-two",
+    data: {
+        title: 'Vue App Two',
     },
     methods: {
+        changeTitle: function () {
+            one.title = "Title changed";
+        }
     },
     computed: {
-        addToA: function () {
-            console.log('addToA')
-            return this.a + this.age;
-        },
-        addToB: function () {
-            console.log('addToB')
-            return this.b + this.age;
-        },
-    }
+        greet: function () {
+            return 'Yo, hey bros. Comin\' at ya from app two. :p'
+        }
+    },
 });
+
+two.title = "Changed from outside";
